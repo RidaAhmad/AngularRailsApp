@@ -1,4 +1,22 @@
-<div ng-controller='MainController'>
-  {{ message }}
-  From Index!
+<div ng-controller='MainController as main'>
+  {{ main.message }}
+  <hr/>
+  <div class='row'>
+    <div ng-repeat='task in main.tasks'>
+      <div class='row'>
+        <a ng-href='#/tasks/{{task.id}}'><strong>Task Title: </strong> {{task.title}}</a>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class='row'>
+    <strong>
+      Create A New Task
+    </strong>
+    <form name='form' ng-submit='main.CreateTask()'>
+      <label name='title'>Enter Task Title: </label>
+      <input type='text' id='title' ng-model='main.task.title'>
+      <input type='submit' value='Create Task'>
+    </form>
+  </div>
 </div>

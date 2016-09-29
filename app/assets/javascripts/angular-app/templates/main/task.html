@@ -1,0 +1,19 @@
+<div ng-controller='TaskController as taskCtrl'>
+  {{ taskCtrl.message }}
+  <a ng-href='#/tasks'>All tasks</a>
+  <hr/>
+  <div class='row'>
+    <strong>Task Title: </strong> {{taskCtrl.task.title}}
+    <button name='Delete' ng-click='taskCtrl.DeleteTask()'>Delete Task</button>
+  </div>
+  <hr/>
+  <div class='row'>
+    <strong>
+      Update Task
+    </strong>
+    <form name='form' ng-submit='taskCtrl.UpdateTask()'>
+      <input type='text' id='title' ng-model='taskCtrl.task.title'>
+      <input type='submit' value='Update Task'>
+    </form>
+  </div>
+</div>
