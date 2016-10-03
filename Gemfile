@@ -46,3 +46,7 @@ end
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'sprockets', '2.12.3'
+gem 'devise'
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
