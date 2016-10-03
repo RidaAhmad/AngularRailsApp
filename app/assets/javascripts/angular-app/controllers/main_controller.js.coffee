@@ -1,4 +1,4 @@
-MainController = (TasksService) ->
+MainController = (TasksService, $scope) ->
   vm = this
 
   vm.message = 'Message From the Main JS Controller!'
@@ -16,9 +16,13 @@ MainController = (TasksService) ->
       throw err
       return
 
+  $scope.$watchCollection 'tasks', () ->
+    console.log('Tasks Modified!')
+
   vm.CreateTask = CreateTask
 
 angular.module('angularApp').controller 'MainController', MainController
 MainController.$inject = [
   'TasksService'
+  '$scope'
 ]
