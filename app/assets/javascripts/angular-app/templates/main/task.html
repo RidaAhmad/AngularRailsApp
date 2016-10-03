@@ -1,6 +1,8 @@
+<welcome-directive></welcome-directive>
 <div ng-controller='TaskController as taskCtrl'>
   {{ taskCtrl.message }}
-  <a ng-href='#/tasks'>All tasks</a>
+  <hr/>
+  <a ng-href='#/'>Home</a> | <a ng-href='#/tasks'>All tasks</a>
   <hr/>
   <div class='row'>
     <strong>Task Title: </strong> {{taskCtrl.task.title}}
