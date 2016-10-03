@@ -1,10 +1,13 @@
 <div ng-controller='MainController as main'>
   {{ main.message }}
   <hr/>
+  <label>Search With Title: <input ng-model='search.title'></label>
+  <hr/>
   <div class='row'>
-    <div ng-repeat='task in main.tasks'>
+    <strong>List of Tasks: </strong>
+    <div ng-repeat='task in main.tasks | filter:search'>
       <div class='row'>
-        <a ng-href='#/tasks/{{task.id}}'><strong>Task Title: </strong> {{task.title}}</a>
+        <a ng-href='#/tasks/{{task.id}}'> {{task.title}} </a>
       </div>
     </div>
   </div>
@@ -15,8 +18,34 @@
     </strong>
     <form name='form' ng-submit='main.CreateTask()'>
       <label name='title'>Enter Task Title: </label>
-      <input type='text' id='title' ng-model='main.task.title'>
+      <input type='text' id='title' ng-model='main.task.title' required>
       <input type='submit' value='Create Task'>
     </form>
   </div>
+  <hr/>
+  <label>Display Tasks With IDs <input type='checkbox' ng-model='checked' ng-init='checked=false' /></label>
+  <div ng-show='checked'>
+    <hr/>
+    <div class='row'>
+      <div>
+        <label>Set Task Title Display Limit </label>
+        <input type='number' step='1' ng-model='limit' ng-init='limit=6' min='2' max='15'>
+      </div>
+      <strong>Table Displaying Tasks With IDs</strong>
+      <hr/>
+      <table id='tasks'>
+        <tr><th>ID</th><th>Title</th></tr>
+        <tr ng-repeat="task in main.tasks | orderBy:'-id'">
+          <td>{{task.id}}</td>
+          <td>{{task.title | limitTo:limit }}</td>
+        </tr>
+      </table>
+    </div>
+    <hr/>
+    <strong>Tasks Details </strong>
+    <pre id='tasks-json'>{{ main.tasks | json:4 }}</pre>
+  </div>
+  <hr/>
+
+
 </div>
