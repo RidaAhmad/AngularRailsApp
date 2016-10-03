@@ -4,30 +4,30 @@
   <hr/>
   <label>Search With Title: <input ng-model='search.title'></label>
   <hr/>
-  <div class='row'>
+  <div>
     <strong>List of Tasks: </strong>
     <div ng-repeat='task in main.tasks | filter:search'>
-      <div class='row'>
+      <div>
         <a ng-href='#/tasks/{{task.id}}'> {{task.title}} </a>
       </div>
     </div>
   </div>
   <hr/>
-  <div class='row'>
+  <div>
     <strong>
       Create A New Task
     </strong>
     <form name='form' ng-submit='main.CreateTask()'>
       <label name='title'>Enter Task Title: </label>
       <input type='text' id='title' ng-model='main.task.title' required>
-      <input type='submit' value='Create Task'>
+      <input type='submit' value='Create Task' class='btn btn-primary btn-info'>
     </form>
   </div>
   <hr/>
   <label>Display Tasks With IDs <input type='checkbox' ng-model='checked' ng-init='checked=false' /></label>
   <div ng-show='checked'>
     <hr/>
-    <div class='row'>
+    <div>
       <div>
         <label>Set Task Title Display Limit </label>
         <input type='number' step='1' ng-model='limit' ng-init='limit=6' min='2' max='15'>

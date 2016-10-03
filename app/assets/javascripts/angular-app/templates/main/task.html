@@ -4,18 +4,18 @@
   <hr/>
   <a ng-href='#/'>Home</a> | <a ng-href='#/tasks'>All tasks</a>
   <hr/>
-  <div class='row'>
+  <div>
     <strong>Task Title: </strong> {{taskCtrl.task.title}}
-    <button name='Delete' ng-click='taskCtrl.DeleteTask()'>Delete Task</button>
+    <button name='Delete' ng-click='taskCtrl.DeleteTask()' class='btn btn-primary btn-danger'>Delete Task</button>
   </div>
   <hr/>
-  <div class='row'>
+  <div>
     <strong>
       Update Task
     </strong>
     <form name='form' ng-submit='taskCtrl.UpdateTask()'>
       <input type='text' id='title' ng-model='taskCtrl.task.title'>
-      <input type='submit' value='Update Task'>
+      <input type='submit' value='Update Task' class='btn btn-primary btn-warning'>
     </form>
   </div>
 </div>
