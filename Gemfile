@@ -50,3 +50,4 @@ gem 'devise'
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
+gem 'active_model_serializers'
