@@ -1,0 +1,18 @@
+<welcome-directive></welcome-directive>
+<div ng-controller='LoginController as LoginCtrl'>
+  <div>
+    <strong>
+      Sign In
+    </strong>
+    <form name='form' ng-submit='LoginCtrl.Login()'>
+      <label name='email'>Enter User Email: </label>
+      <input type='email' id='email' ng-model='LoginCtrl.user.email' required>
+      <br/>
+      <label name='password'>Enter Password: </label>
+      <input type='password' id='password' ng-model='LoginCtrl.user.password' required>
+      <br/>
+      <input type='submit' value='Sign In' class='btn btn-primary btn-info'>
+    </form>
+  </div>
+  <hr/>
+</div>

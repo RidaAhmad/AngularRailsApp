@@ -1,5 +1,13 @@
-<div>
-  Tasks Manager!
+<div ng-controller='HeaderController as headerCtrl'>
+  <div ng-hide='headerCtrl.isLoggedIn'>
+    <a ng-href='#/users/sign_up'>Sign Up</a> | <a ng-href='#/users/sign_in'>Log In</a>
+  </div>
+  <div ng-show='headerCtrl.isLoggedIn'>
+    <div ng-controller='Logout as logoutCrtl'>
+      <button class='btn btn-primary btn-warning' ng-click='logoutCrtl.logout()'>Logout</button>
+      <a ng-href='#/users/reset_password'>Change Password</a>
+      <hr/>
+    </div>
+  </div>
+  <hr/>
 </div>
-
-<hr/>

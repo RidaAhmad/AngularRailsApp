@@ -1,0 +1,18 @@
+<welcome-directive></welcome-directive>
+<div ng-controller='SignupController as SignupCtrl'>
+  <div>
+    <strong>
+      Sign Up
+    </strong>
+    <form name='form' ng-submit='SignupCtrl.Signup()'>
+      <label name='email'>Enter User Email: </label>
+      <input type='email' id='email' ng-model='SignupCtrl.user.email' required>
+      <br/>
+      <label name='password'>Enter Password: </label>
+      <input type='password' id='password' ng-model='SignupCtrl.user.password' required>
+      <br/>
+      <input type='submit' value='Sign Up' class='btn btn-primary btn-info'>
+    </form>
+  </div>
+  <hr/>
+</div>
