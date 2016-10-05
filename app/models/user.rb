@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   before_create :generate_access_token!
 
+  has_many :tasks
+
   def generate_access_token!
     begin
       self.access_token = Devise.friendly_token
