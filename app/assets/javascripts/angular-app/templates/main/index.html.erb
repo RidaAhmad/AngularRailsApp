@@ -1,6 +1,6 @@
 <welcome-directive></welcome-directive>
 <div ng-controller='MainController as main'>
-  <strong>Tasks</strong>
+  <h1>Tasks</h1>
   <hr/>
   <label>Search With Title: <input ng-model='search.title'></label>
   <hr/>
@@ -14,13 +14,13 @@
   </div>
   <hr/>
   <div>
-    <strong>
+    <h3>
       Create A New Task
-    </strong>
+    </h3>
     <form name='form' ng-submit='main.CreateTask()'>
       <label name='title'>Enter Task Title: </label>
       <input type='text' id='title' ng-model='main.task.title' required>
-      <input type='submit' value='Create Task' class='btn btn-primary btn-info'>
+      <input type='submit' value='Create Task' class='btn btn-info'>
     </form>
   </div>
   <hr/>
