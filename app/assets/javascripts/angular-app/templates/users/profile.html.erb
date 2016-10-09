@@ -8,6 +8,8 @@
     <br/>
     <label name='username'>User Name: </label> {{ ProfileCtrl.user.username }}
     <hr/>
+    <img ng-src={{ProfileCtrl.user.thumb_url}}/>
+    <hr/>
     <strong>List of Your Tasks: </strong>
     <div ng-repeat='task in ProfileCtrl.user.tasks'>
       <div>

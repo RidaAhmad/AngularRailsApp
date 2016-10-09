@@ -13,15 +13,19 @@ AuthService = (Auth, $http, $location, $cookies, $resource, $q) ->
 
   signup: (user) ->
     config = {
+      transformRequest: angular.identity
       headers:
         'X-HTTP-Method-Override': 'Post'
+        'Content-Type': undefined
     }
-    $http.post('api/v1/users.json', user: user, config).then ((user) ->
+    fd = new FormData
+    for key of user
+      fd.append 'user[#{key}]', user[key]
+    $http.post('api/v1/users.json', fd, config).then ((user) ->
       $cookies.currentUser = angular.toJson(user.data)
       $location.path('/')
     ), (error) ->
       alert('Unable to signup successfully!')
-      return
 
   logout: ->
     config = {
