@@ -1,4 +1,6 @@
 class Api::V1::Users::SessionsController < Devise::SessionsController
+  include Authenticateable
+
   skip_before_action :verify_signed_out_user, only: [:destroy]
   before_action :authenticate_user_from_token!, only: [:destroy]
 

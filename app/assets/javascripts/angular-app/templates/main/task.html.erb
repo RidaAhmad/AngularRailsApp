@@ -1,21 +1,20 @@
 <welcome-directive></welcome-directive>
 <div ng-controller='TaskController as taskCtrl'>
-  {{ taskCtrl.message }}
+  <h1>Task Details</h1>
   <hr/>
-  <a ng-href='#/'>Home</a> | <a ng-href='#/tasks'>All tasks</a>
-  <hr/>
-  <div>
-    <strong>Task Title: </strong> {{taskCtrl.task.title}}
-    <button name='Delete' ng-click='taskCtrl.DeleteTask()' class='btn btn-primary btn-danger'>Delete Task</button>
-  </div>
-  <hr/>
-  <div>
+  <strong>Task Title: </strong> {{taskCtrl.task.title}}
+  <div ng-if='taskCtrl.allowed_access'>
+    <button name='Delete' ng-click='taskCtrl.DeleteTask()' class='btn btn-danger'>Delete Task</button>
+    <hr/>
     <strong>
-      Update Task
+      Update Task:-
     </strong>
     <form name='form' ng-submit='taskCtrl.UpdateTask()'>
+      <br/>
+      <label name='title'>Enter Task Title: </label>
       <input type='text' id='title' ng-model='taskCtrl.task.title'>
-      <input type='submit' value='Update Task' class='btn btn-primary btn-warning'>
+      <br/>
+      <input type='submit' value='Update Task' class='btn btn-warning'>
     </form>
   </div>
 </div>

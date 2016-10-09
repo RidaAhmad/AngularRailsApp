@@ -1,12 +1,13 @@
-TaskController = ($routeParams, $location, TaskService) ->
+TaskController = ($routeParams, $location, TaskService, AuthService) ->
   vm = this
 
-  vm.message = 'Message From the Task JS Controller!'
   vm.task = {}
+  vm.allowed_access = false
 
   if $routeParams.id
     TaskService.show({id: $routeParams.id}).$promise.then((res) ->
       vm.task = res
+      vm.allowed_access = AuthService.access_allowed(vm.task.user_id)
       return
     ).catch (err) ->
       alert('Error! Unable to display task.')
@@ -48,4 +49,5 @@ TaskController.$inject = [
   '$routeParams'
   '$location'
   'TaskService'
+  'AuthService'
 ]

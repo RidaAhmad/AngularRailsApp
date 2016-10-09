@@ -1,13 +1,15 @@
 <div ng-controller='HeaderController as headerCtrl'>
-  <div ng-hide='headerCtrl.isLoggedIn'>
+  <a ng-href='#/'>Home</a> | <a ng-href='#/tasks'>All tasks</a> |
+  <span ng-hide='headerCtrl.isLoggedIn'>
     <a ng-href='#/users/sign_up'>Sign Up</a> | <a ng-href='#/users/sign_in'>Log In</a>
-  </div>
-  <div ng-show='headerCtrl.isLoggedIn'>
-    <div ng-controller='Logout as logoutCrtl'>
-      <button class='btn btn-primary btn-warning' ng-click='logoutCrtl.logout()'>Logout</button>
-      <a ng-href='#/users/reset_password'>Change Password</a>
-      <hr/>
-    </div>
-  </div>
+  </span>
+  <span ng-show='headerCtrl.isLoggedIn'>
+    <span ng-controller='Logout as logoutCrtl'>
+      <a ng-href='#/users/profile'>Profile</a> | <a ng-href='#/users/edit_profile'>Edit Profile</a> | <a ng-href='#/users/reset_password'>Change Password</a>
+      <button class='btn btn-primary pull-right' ng-click='logoutCrtl.logout()'>Logout</button>
+      <br/>
+    </span>
+  </span>
+  <h2 align='center'><strong>Tasks Manager</strong></h2>
   <hr/>
 </div>

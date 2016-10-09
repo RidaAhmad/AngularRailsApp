@@ -1,0 +1,21 @@
+<welcome-directive></welcome-directive>
+<div ng-controller='EditProfileController as EditProfileCtrl'>
+  <div ng-show='EditProfileCtrl.allowed_access'>
+    <h1>Edit Profile</h1>
+    <hr/>
+    <br/>
+    <form name='form' ng-submit='EditProfileCtrl.EditProfile()'>
+      <label name='username'>Enter New User Name: </label>
+      <input type='text' id='username' ng-model='EditProfileCtrl.user.username' required>
+      <br/>
+      <label name='password'>Enter Password: </label>
+      <input type='password' id='password' ng-model='EditProfileCtrl.user.password' required>
+      <br/>
+      <input type='submit' value='Edit Profile' class='btn btn-info'>
+    </form>
+  </div>
+  <div ng-hide='EditProfileCtrl.allowed_access'>
+    <strong>Unauthorized!</strong>
+  </div>
+  <hr/>
+</div>

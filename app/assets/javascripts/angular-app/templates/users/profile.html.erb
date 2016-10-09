@@ -1,0 +1,22 @@
+<welcome-directive></welcome-directive>
+<div ng-controller='ProfileController as ProfileCtrl'>
+  <div ng-show='ProfileCtrl.allowed_access'>
+    <h1>User Profile</h1>
+    <hr/>
+    <br/>
+    <label name='email'>User Email: </label> {{ ProfileCtrl.user.email }}
+    <br/>
+    <label name='username'>User Name: </label> {{ ProfileCtrl.user.username }}
+    <hr/>
+    <strong>List of Your Tasks: </strong>
+    <div ng-repeat='task in ProfileCtrl.user.tasks'>
+      <div>
+        <a ng-href='#/tasks/{{task.id}}'> {{task.title}} </a>
+      </div>
+    </div>
+  </div>
+  <div ng-hide='ProfileCtrl.allowed_access'>
+    <strong>Unauthorized!</strong>
+  </div>
+  <hr/>
+</div>
