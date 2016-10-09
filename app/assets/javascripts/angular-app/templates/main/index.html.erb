@@ -1,6 +1,6 @@
 <welcome-directive></welcome-directive>
 <div ng-controller='MainController as main'>
-  {{ main.message }}
+  <strong>Tasks</strong>
   <hr/>
   <label>Search With Title: <input ng-model='search.title'></label>
   <hr/>
@@ -47,6 +47,4 @@
     <pre id='tasks-json'>{{ main.tasks | json:4 }}</pre>
   </div>
   <hr/>
-
-
 </div>

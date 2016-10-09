@@ -1,7 +1,6 @@
 MainController = (TasksService, $scope) ->
   vm = this
 
-  vm.message = 'Message From the Main JS Controller!'
   vm.tasks = TasksService.query()
   vm.task = {}
 
