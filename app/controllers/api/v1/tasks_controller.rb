@@ -6,7 +6,7 @@ class Api::V1::TasksController < Api::V1::BaseController
   def index
     @tasks = Task.all
 
-    render json: @tasks
+    render json: @tasks, each_serializer: TasksIndexSerializer
   end
 
   def show
