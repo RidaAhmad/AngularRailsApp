@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   before_create :generate_access_token!
 
   has_many :tasks
+  has_many :comments, dependent: :destroy
   has_attached_file :attachment, styles: { large: '450x400!', medium: '250x250!', thumb: '100x100!' }, default_url: '/images/:style/missing.png'
   validates_attachment_content_type :attachment, content_type: /\Aimage\/.*\z/
 
