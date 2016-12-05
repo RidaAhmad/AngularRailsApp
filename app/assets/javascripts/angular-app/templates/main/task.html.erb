@@ -3,18 +3,37 @@
   <h1>Task Details</h1>
   <hr/>
   <strong>Task Title: </strong> {{taskCtrl.task.title}}
-  <div ng-if='taskCtrl.allowed_access'>
-    <button name='Delete' ng-click='taskCtrl.DeleteTask()' class='btn btn-danger'>Delete Task</button>
-    <hr/>
-    <strong>
-      Update Task:-
-    </strong>
-    <form name='form' ng-submit='taskCtrl.UpdateTask()'>
-      <br/>
-      <label name='title'>Enter Task Title: </label>
-      <input type='text' id='title' ng-model='taskCtrl.task.title'>
-      <br/>
-      <input type='submit' value='Update Task' class='btn btn-warning'>
-    </form>
+  <div ng-if='!!taskCtrl.current_user_id'>
+    <div ng-if='taskCtrl.allowed_access'>
+      <button name='Delete' ng-click='taskCtrl.DeleteTask()' class='btn btn-danger'>Delete Task</button>
+      <hr/>
+      <strong>
+        Update Task:-
+      </strong>
+      <form name='form' ng-submit='taskCtrl.UpdateTask()'>
+        <br/>
+        <label name='title'>Enter Task Title: </label>
+        <input type='text' id='title' ng-model='taskCtrl.task.title'>
+        <br/>
+        <input type='submit' value='Update Task' class='btn btn-info'>
+      </form>
+    </div>
+    <div>
+      <h4>Add comment</h4>
+      <form name='form' ng-submit='taskCtrl.AddComment()'>
+        <input type='text' id='content' ng-model='taskCtrl.comment.content' required>
+        <input type='submit' value='Add Comment' class='btn btn-info'>
+      </form>
+    </div>
+  </div>
+  <div>
+    <h3>Comments:-</h3>
+    <div ng-repeat='comment in taskCtrl.comments'>
+      <div>
+        Comment:
+        <span><strong> {{comment.content}} </strong></span>
+        <span ng-if='!!taskCtrl.current_user_id'><button ng-if='comment.user_id == taskCtrl.current_user_id' name='DeleteComment' ng-click='taskCtrl.DeleteComment(comment)' class='btn btn-warning'>Delete</button></span>
+      </div>
+    </div>
   </div>
 </div>
